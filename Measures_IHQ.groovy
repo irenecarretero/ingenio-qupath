@@ -1,3 +1,4 @@
+// Adapted from https://qupath.readthedocs.io/en/stable/docs/tutorials/exporting_measurements.html
 
 import qupath.lib.gui.tools.MeasurementExporter
 import qupath.lib.objects.PathDetectionObject
