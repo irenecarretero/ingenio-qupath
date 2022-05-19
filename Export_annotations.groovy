@@ -2,7 +2,9 @@
 
 def imageName = getProjectEntry().getImageName()
 
-def annotations = getAnnotationObjects()
+def annotations = getAnnotationObjects() 
+def detections = getDetectionObjects()
+
 boolean prettyPrint = true
 def gson = GsonTools.getInstance(prettyPrint)
 
@@ -14,7 +16,9 @@ if (!annotations) {
 
 def path = buildFilePath(PROJECT_BASE_DIR, imageName)
 
-def file = new File(path)
-file.write(gson.toJson(annotations))
+def file1 = new File(path + '_annotations.json')
+file1.write(gson.toJson(annotations))
+def file2 = new File(path + '_detections.json')
+file2.write(gson.toJson(detections))
 
 print "Hecho!"
