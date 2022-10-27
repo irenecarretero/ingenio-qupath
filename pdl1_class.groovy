@@ -9,7 +9,7 @@ import static qupath.lib.classifiers.PathClassifierTools.*
 
 
 //Specify positive PD-L1 thresholds
-pdl1_thres = 0.2
+pdl1_thres = 0.02
 
 
 Tumor = getPathClass("Tumor")
@@ -17,8 +17,8 @@ pdl1_Pos = getPathClass("Positive")
 measurement1 = "Cytoplasm: DAB OD mean" 
 
 
-//Classify the cells as positive or negative
-selectDetections()
+//classify in tumor
+selectObjects {p -> p.getPathClass() == getPathClass("Tumor")}
 for (detection in getSelectedObjects()) {
     m1 = measurement(detection, measurement1) 
 
